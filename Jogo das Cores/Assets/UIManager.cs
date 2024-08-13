@@ -45,4 +45,9 @@ public class UIManager : MonoBehaviour
     {
         errouTexto.text = erros.ToString();
     }
+
+    public void LimparTexto()
+    {
+        sequenciaTexto.text = "";
+    }
 }
