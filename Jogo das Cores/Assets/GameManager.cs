@@ -13,5 +13,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
+    int corDaVez, acertos, erros;
+    int[] sequencia;
+    [SerializeField] string[] nomes;
 }
