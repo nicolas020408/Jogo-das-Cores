@@ -35,4 +35,14 @@ public class UIManager : MonoBehaviour
             //botoes[i].onClick.AddListener(() => GameManager.instance.ChecarCor(x))
         }
     }
+
+    public void AtualizarAcertos(int acertos)
+    {
+        acertouTexto.text = acertos.ToString();
+    }
+
+    public void AtualizarErros(int erros)
+    {
+        errouTexto.text = erros.ToString();
+    }
 }
