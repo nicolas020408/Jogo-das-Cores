@@ -1285,6 +1285,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34804604ce200644ea70664decb766d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botoes:
+  - {fileID: 483097581}
+  - {fileID: 376467624}
+  - {fileID: 390054009}
+  - {fileID: 2093339069}
+  - {fileID: 758440125}
+  - {fileID: 1680653404}
+  - {fileID: 363841485}
+  - {fileID: 2097513652}
+  sequenciaTexto: {fileID: 654599175}
+  errouTexto: {fileID: 845468933}
+  acertouTexto: {fileID: 1974989961}
 --- !u!4 &1056924706
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,6 +1341,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2e491dd1b35e44d96ea62174608cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequencia: 0000000000000000000000000000000000000000000000000000000000000000
+  nomes:
+  - Vermelho
+  - Azul
+  - Amarelo
+  - Verde
+  - Laranja
+  - Rosa
+  - Roxo
+  - Ciano
 --- !u!4 &1232348873
 Transform:
   m_ObjectHideFlags: 0
