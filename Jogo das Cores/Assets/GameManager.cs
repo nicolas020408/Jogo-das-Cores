@@ -35,4 +35,24 @@ public class GameManager : MonoBehaviour
             //UIManager.instance.AtualizarSequencia(nomes[sequencia[i]])
         }
     }
+
+    public void ChecarCor(int corIndex)
+    {
+        if(corIndex == sequencia[corDaVez])
+        {
+            corDaVez++;
+            if(corDaVez == sequencia.Length)
+            {
+                acertos++;
+                //UIManager.instance.AtualizarAcertos(acertos);
+                GerarSequencia();
+            }
+        }
+        else
+        {
+            erros++;
+            //UIManager.instance.AtualizarErros(erros);
+            GerarSequencia();
+        }
+    }
 }
