@@ -26,4 +26,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button[] botoes;
 
     [SerializeField] TextMeshProUGUI sequenciaTexto, errouTexto, acertouTexto;
+
+    private void Start()
+    {
+        for (int i = 0; i < botoes.Length; i++)
+        {
+            int x = i;
+            //botoes[i].onClick.AddListener(() => GameManager.instance.ChecarCor(x))
+        }
+    }
 }
