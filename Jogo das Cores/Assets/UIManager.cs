@@ -11,68 +11,59 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        // Inicialização do Singleton
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);  // Se você quiser que o UIManager persista entre cenas
         }
         else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);  // Garante que apenas uma instância do UIManager exista
         }
     }
     #endregion
 
-    [SerializeField] Button[] botoes;
-    [SerializeField] TextMeshProUGUI errouTexto, acertouTexto;
-    [SerializeField] Image sequenciaImage;  // Usamos uma imagem para exibir a cor
+    [SerializeField] private Button[] botoes;   // Botões que o jogador pode clicar para escolher a cor
+    [SerializeField] private TextMeshProUGUI sequenciaTexto;  // Texto para mostrar a sequência de cores
+    [SerializeField] private TextMeshProUGUI errouTexto;     // Texto para mostrar erros
+    [SerializeField] private TextMeshProUGUI acertouTexto;   // Texto para mostrar acertos
 
     private void Start()
     {
-        // Adiciona listeners aos botões
+        // Atribuir o método de clique dos botões no start
         for (int i = 0; i < botoes.Length; i++)
         {
-            int x = i; // Captura o valor de "i" corretamente dentro do loop
-            botoes[i].onClick.AddListener(() => GameManager.instance.ChecarCor(x));
+            int x = i;  // Para capturar o valor correto de "i" durante o loop
+            botoes[i].onClick.AddListener(() => GameManager.instance.ChecarCor(GameManager.instance.coresDisponiveis[x]));
         }
     }
 
-    // Atualiza o contador de acertos na UI
+    // Método para atualizar a quantidade de acertos
     public void AtualizarAcertos(int acertos)
     {
         acertouTexto.text = acertos.ToString();
     }
 
-    // Atualiza o contador de erros na UI
+    // Método para atualizar a quantidade de erros
     public void AtualizarErros(int erros)
     {
         errouTexto.text = erros.ToString();
     }
 
-    // Limpa o texto da sequência atual
+    // Método para limpar o texto na tela
     public void LimparTexto()
     {
-        // Não precisamos mais limpar texto, mas podemos esconder a sequência visual temporariamente
-        sequenciaImage.color = Color.clear;  // Deixa a imagem invisível (ou esconde a cor)
+        sequenciaTexto.text = "";
     }
 
-    // Atualiza a sequência de cores na UI (usando imagens com cor)
-    public void AtualizarSequencia(Color cor)
+    // Método para atualizar a sequência exibida na UI
+    public void AtualizarSequencia(string nomeDaCor)
     {
-        sequenciaImage.color = cor;  // Atualiza a cor da imagem
-    }
-
-    // Exibe toda a sequência de cores (pode ser útil para debug ou algum outro propósito)
-    public void ExibirSequenciaCompleta()
-    {
-        // Vamos criar um painel ou outro tipo de visualização com as cores
-        string sequenciaCompleta = "Sequência: ";
-        foreach (Color cor in GameManager.instance.GetSequencia())
-        {
-            sequenciaCompleta += cor.ToString() + " ";  // Apenas para debug, podemos não mostrar isso
-        }
-        errouTexto.text = sequenciaCompleta;  // Aqui para exibir no texto de erros, se necessário
+        sequenciaTexto.text += nomeDaCor + " ";  // Adiciona a cor à sequência de texto
     }
 }
+
 
 
 
