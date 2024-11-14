@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
-{
+{ //
     #region Singleton
     public static UIManager instance;
 
